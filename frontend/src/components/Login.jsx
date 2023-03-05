@@ -3,12 +3,13 @@ import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import shareVideo from "../assets/share.mp4";
-import logo from "../assets/logowhite.png";
+import logo from "../assets/photoParcelLogoWhite.png";
 import { client } from "../client";
 
 const Login = () => {
   const navigate = useNavigate();
   const responseGoogle = (response) => {
+    if(response.profileObj){
     localStorage.setItem("user", JSON.stringify(response.profileObj));
 
     const { name, googleId, imageUrl } = response.profileObj;
@@ -23,6 +24,7 @@ const Login = () => {
     client.createIfNotExists(doc).then(() => {
       navigate("/", { replace: true });
     });
+  }
   };
   return (
     <div className="flex justify-start items-center flex-col h-screen">
@@ -38,8 +40,8 @@ const Login = () => {
         />
       </div>
       <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
-        <div className="p-5">
-          <img src={logo} width="130px" alt="logo" />
+        <div className="p-2">
+          <img src={logo} width="150px" height="100px" alt="logo" />
         </div>
 
         <div className="shadow-2xl">

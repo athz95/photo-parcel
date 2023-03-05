@@ -71,7 +71,7 @@ const UserProfile = () => {
             />
             <img
               src={user.image}
-              alt="user-pic"
+              alt=""
               className="w-20 h-20 rounded-full -mt-10 shadow-xl object-cover"
             />
             <h1 className="font-bold text-3xl text-center mt-3">
