@@ -80,7 +80,7 @@ const PinDetail = ({ user }) => {
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
               <a
-                href={`${pinDetail.image.asset.url}?dl=`}
+                href={pinDetail?.image && `${pinDetail.image.asset.url}?dl=`}
                 download
                 onClick={(e) => e.stopPropagation()}
                 className="bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
